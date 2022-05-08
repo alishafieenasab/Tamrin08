@@ -1,0 +1,18 @@
+﻿@model Person
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/Site.css" rel="stylesheet" />
+<div style="direction:rtl !important;margin:40px auto;width:50%"  class="alert alert-warning">
+    <p>Are You Sure To Delete This?</p>
+    @using (Html.BeginForm("AdmitDelete", "Home", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            <input type="hidden" value="@Model.Id" name="Id" />
+        </div>
+        <div class="form-actions no-color">
+            <a href="/Home/Index" class="btn btn-default pull-Right" data-dismiss="modal">No</a>
+            <input type="submit" value="Yes" class="btn btn-danger pull-Right" />
+            <div style="clear:both"></div>
+        </div>
+    }
+</div>
